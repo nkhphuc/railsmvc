@@ -1,0 +1,14 @@
+<div>
+  <%= form.label :subject, style: "display: block" %>
+  <%= form.select :subject, Grade.subjects.keys %>
+</div>
+
+<div>
+  <%= form.label :semester, style: "display: block" %>
+  <%= form.select :semester, Grade.semesters.keys %>
+</div>
+
+<div>
+  <%= form.label :score, style: "display: block" %>
+  <%= form.number_field :score %>
+</div>

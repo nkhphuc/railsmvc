@@ -27,6 +27,12 @@
   </div>
 
   <div>
+    <%= form.fields_for :grades do |form| %>
+      <%= render 'students/grade_fields', form: form %>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
