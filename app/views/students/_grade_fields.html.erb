@@ -1,4 +1,8 @@
 <div>
+  <%= form.remove_nested_fields_link %>
+</div>
+
+<div>
   <%= form.label :subject, style: "display: block" %>
   <%= form.select :subject, Grade.subjects.keys %>
 </div>
@@ -11,4 +15,9 @@
 <div>
   <%= form.label :score, style: "display: block" %>
   <%= form.number_field :score %>
+</div>
+
+<div>
+  <%= form.check_box :_destroy %>
+  <%= form.label :_destroy, "Remove grade" %>
 </div>

@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    @student.grades.build
   end
 
   def create
@@ -52,6 +53,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:name, :email, :birthday, grades_attributes: [:id, :subject, :semester, :score])
+      params.require(:student).permit(:name, :email, :birthday, grades_attributes: [:id, :subject, :semester, :score, :_destroy])
     end
 end
