@@ -51,6 +51,6 @@ class GradesController < ApplicationController
   #   end
 
   #   def grade_params
-  #     params.require(:grade).permit(:name, :score)
+  #     params.require(:grade).permit(:name, :semester, :score)
   #   end
 end
