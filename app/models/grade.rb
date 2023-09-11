@@ -3,4 +3,6 @@ class Grade < ApplicationRecord
 
   enum subject: {'Math' => 0, 'Physic' => 1}
   enum semester: {'I' => 0, 'II' => 1}
+
+  validates :score, inclusion: { in: 0..10 }
 end
