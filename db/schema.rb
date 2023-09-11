@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_11_084220) do
   create_table "grades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "subject", default: "", null: false
-    t.string "semester", default: "", null: false
-    t.integer "score", default: 0, null: false
+    t.integer "subject"
+    t.integer "semester"
+    t.integer "score"
     t.bigint "student_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

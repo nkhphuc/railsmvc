@@ -3,4 +3,3 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 import "jquery"
-import "nested_form_fields"

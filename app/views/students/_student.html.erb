@@ -14,4 +14,12 @@
     <%= student.birthday %>
   </p>
 
+  <% student.grades.each do |grade| %>
+    <p>
+      <strong>Subject:</strong> <%= grade.subject %> <br>
+      <strong>Semester:</strong> <%= grade.semester %> <br>
+      <strong>Score:</strong> <%= grade.score %> <br>
+    </p>
+  <% end %>
+
 </div>

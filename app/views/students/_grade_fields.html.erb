@@ -4,12 +4,12 @@
 
 <div>
   <%= form.label :subject, style: "display: block" %>
-  <%= form.select :subject, Grade.subjects.keys %>
+  <%= form.select :subject, Grade.subjects.keys, prompt: 'Select subject' %>
 </div>
 
 <div>
   <%= form.label :semester, style: "display: block" %>
-  <%= form.select :semester, Grade.semesters.keys %>
+  <%= form.select :semester, Grade.semesters.keys, prompt: 'Select semester' %>
 </div>
 
 <div>
