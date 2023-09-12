@@ -4,4 +4,3 @@
 //= link_tree ../../../vendor/javascript .js
 
 //= link jquery.js
-//= link nested_form_fields.js

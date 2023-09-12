@@ -2,6 +2,8 @@
 
 # Students Controller
 class StudentsController < ApplicationController
+  layout "students_layout/students"
+
   before_action :set_student, only: %i[show edit update destroy]
 
   def index
@@ -52,7 +54,10 @@ class StudentsController < ApplicationController
   private
 
   def set_student
-    @student = Student.find(params[:id])
+    @student = Student.find_by(params[:id])
+    # if @student.nil?
+    #   @student.errors.add
+    # end
   end
 
   def student_params

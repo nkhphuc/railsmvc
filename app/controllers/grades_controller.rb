@@ -2,6 +2,8 @@
 
 # Grades Controller
 class GradesController < ApplicationController
+  # layout "grades_layout/grades"
+
   # before_action :set_grade, only: %i[ show edit update destroy ]
 
   # def index

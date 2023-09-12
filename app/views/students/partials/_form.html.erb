@@ -28,7 +28,7 @@
 
   <div>
     <%= form.nested_fields_for :grades do |form| %>
-      <%= render 'students/grade_fields', form: form %>
+      <%= render 'students/partials/grade_fields', form: form %>
     <% end %>
     <%= form.add_nested_fields_link :grades %>
   </div>
@@ -37,5 +37,3 @@
     <%= form.submit %>
   </div>
 <% end %>
-
-<%= javascript_include_tag 'nested_form_fields' %>
