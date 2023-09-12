@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   before_action :set_student, only: %i[show edit update destroy]
 
   def index
-    @students = Student.all
+    @students = Student.all.page params[:page]
   end
 
   def show; end

@@ -75,4 +75,4 @@ group :test do
 end
 
 gem 'jquery-rails'
-gem 'nested_form_fields'
+gem 'kaminari'
