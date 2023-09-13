@@ -59,14 +59,14 @@ class StudentsController < ApplicationController
   private
 
   def set_student
-    @student = Student.find_by(params[:id])
+    @student = Student.find_by(id: params[:id])
     # if @student.nil?
     #   @student.errors.add
     # end
   end
 
   def student_params
-    params.require(:student).permit(:name, :email, :birthday,
+    params.require(:student).permit(:name, :email, :birthday, :image,
                                     grades_attributes: %i[id subject semester score _destroy])
   end
 end

@@ -1,4 +1,7 @@
 <div id="<%= dom_id student %>">
+
+  <%= image_tag student.image_url if student.image? %>
+
   <p>
     <strong>Name:</strong>
     <%= student.name %>

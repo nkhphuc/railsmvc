@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
+gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
@@ -75,4 +76,8 @@ group :test do
 end
 
 gem 'jquery-rails'
+gem 'nested_form_fields'
 gem 'kaminari'
+gem "fog-aws"
+gem 'carrierwave', '~> 3.0'
+gem "mini_magick"
