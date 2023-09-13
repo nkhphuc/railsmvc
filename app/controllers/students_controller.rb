@@ -7,7 +7,12 @@ class StudentsController < ApplicationController
   before_action :set_student, only: %i[show edit update destroy]
 
   def index
-    @students = Student.all.page params[:page]
+    if params[:query].present?
+      students_load = Student.where('name LIKE ?', '%'+params[:query]+'%')
+    else
+      students_load = Student.all
+    end
+    @students = students_load.page params[:page]
   end
 
   def show; end
