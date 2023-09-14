@@ -4,7 +4,7 @@
 
 <div id="grades">
   <% @grades.each do |grade| %>
-    <%= render grade %>
+    <%= render "manager/grades/partials/grade", grade: @grade %>
     <p>
       <%= link_to "Show this grade", grade %>
     </p>

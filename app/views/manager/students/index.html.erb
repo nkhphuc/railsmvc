@@ -6,7 +6,7 @@
 
 <div id="students">
   <% @students.each do |student| %>
-  <%= render "students/partials/student", student: student %>
+  <%= render "manager/students/partials/student", student: student %>
     <p>
       <%= link_to "Show this student", student %>
     </p>

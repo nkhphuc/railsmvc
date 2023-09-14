@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 # Grades Controller
-class GradesController < ApplicationController
-  # layout "grades_layout/grades"
-
+class Manager::GradesController < ManagerController
   # before_action :set_grade, only: %i[ show edit update destroy ]
 
   # def index

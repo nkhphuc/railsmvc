@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 # Students Controller
-class StudentsController < ApplicationController
-  layout "students_layout/students"
-
+class Manager::StudentsController < ManagerController
   before_action :set_student, only: %i[show edit update destroy]
 
   def index
