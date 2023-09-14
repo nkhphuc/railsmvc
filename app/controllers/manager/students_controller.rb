@@ -64,7 +64,6 @@ class Manager::StudentsController < ManagerController
   end
 
   def student_params
-    params.require(:student).permit(:name, :email, :birthday, :image,
-                                    grades_attributes: %i[id subject semester score _destroy])
+    params.require(:student).permit(:name, :email, :birthday, :image, {medias: []}, grades_attributes: %i[id subject semester score _destroy])
   end
 end

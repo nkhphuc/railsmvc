@@ -17,6 +17,15 @@
     <%= student.birthday %>
   </p>
 
+  <% student.medias.each do |media| %>
+    <% case media.file.extension %>
+    <% when 'mp4' %>
+      <%= video_tag(media, controls: true) %>
+    <% else %>
+      <%= audio_tag(media, controls: true) %>
+    <% end %>
+  <% end %>
+
   <% student.grades.each do |grade| %>
     <p>
       <strong>Subject:</strong> <%= grade.subject %> <br>
