@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FrontController < ApplicationController
-	layout 'front_layout/front'
+  layout 'front_layout/front'
 end

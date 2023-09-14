@@ -1,12 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render 'shared/search', path: students_path %>
 
 <h1>Students</h1>
 
 <div id="students">
   <% @students.each do |student| %>
-  <%= render "manager/students/partials/student", student: student %>
+  <%= render "moderators/students/partials/student", student: student %>
     <p>
       <%= link_to "Show this student", student %>
     </p>

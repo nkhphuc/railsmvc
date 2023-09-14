@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :grades, module: :manager
-  resources :students, module: :manager
+  devise_for :users
+  resources :grades, module: :moderators
+  resources :students, module: :moderators
+  root 'moderators/students#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

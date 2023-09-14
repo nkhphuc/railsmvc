@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MediaUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
