@@ -16,12 +16,12 @@
       <nav>
         <% if user_signed_in? %>
           <%= link_to "User Sign Out", destroy_user_session_path, data: { turbo_method: "DELETE" } %>
+          <div>This is user navbar</div>
+        <% elsif customer_signed_in? %>
+          <%= link_to "Customer Sign Out", destroy_customer_session_path, data: { turbo_method: "DELETE" } %>
+          <div>This is customer navbar</div>
         <% else %>
           <%= link_to "User Sign In", new_user_session_path %>
-        <% end %>
-        <% if customer_signed_in? %>
-          <%= link_to "Customer Sign Out", destroy_customer_session_path, data: { turbo_method: "DELETE" } %>
-        <% else %>
           <%= link_to "Customer Sign In", new_customer_session_path %>
         <% end %>
       </nav>
