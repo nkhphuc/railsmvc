@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: customers
 #
 #  id                     :bigint           not null, primary key
 #  confirmation_sent_at   :datetime
@@ -18,7 +18,6 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
 #  sign_in_count          :integer          default(0), not null
-#  type                   :integer          default("User"), not null
 #  unconfirmed_email      :string(255)
 #  unlock_token           :string(255)
 #  created_at             :datetime         not null
@@ -26,18 +25,14 @@
 #
 # Indexes
 #
-#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_unlock_token          (unlock_token) UNIQUE
+#  index_customers_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_customers_on_email                 (email) UNIQUE
+#  index_customers_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_customers_on_unlock_token          (unlock_token) UNIQUE
 #
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+class Customer < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+end

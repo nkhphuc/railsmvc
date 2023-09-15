@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :customers
   devise_for :users
   resources :grades, module: :moderators
   resources :students, module: :moderators
