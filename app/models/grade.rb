@@ -5,6 +5,7 @@
 # Table name: grades
 #
 #  id         :bigint           not null, primary key
+#  deleted_at :datetime
 #  score      :integer
 #  semester   :integer
 #  subject    :integer
@@ -14,13 +15,13 @@
 #
 # Indexes
 #
+#  index_grades_on_deleted_at  (deleted_at)
 #  index_grades_on_student_id  (student_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (student_id => students.id)
 #
-# Grade
 class Grade < ApplicationRecord
   belongs_to :student
 
@@ -28,4 +29,5 @@ class Grade < ApplicationRecord
   enum semester: { 'I' => 0, 'II' => 1 }
 
   validates :score, inclusion: { in: 0..10 }
+  acts_as_paranoid
 end
