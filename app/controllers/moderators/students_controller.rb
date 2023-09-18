@@ -6,10 +6,15 @@ module Moderators
     before_action :set_student, only: %i[show edit update destroy]
 
     def index
+      # students_load = if params[:query].present?
+      #                   Student.where('name LIKE ?', "%#{params[:query]}%").includes(:grades)
+      #                 else
+      #                   Student.all.includes(:grades)
+      #                 end
       students_load = if params[:query].present?
-                        Student.where('name LIKE ?', "%#{params[:query]}%")
+                        Student.where('name LIKE ?', "%#{params[:query]}%").includes(:grades).joins(:grades).where(grades: {subject: 0})
                       else
-                        Student.all
+                        Student.all.includes(:grades).joins(:grades).where(grades: {subject: 0})
                       end
       @students = students_load.page params[:page]
     end
