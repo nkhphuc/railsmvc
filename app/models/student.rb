@@ -8,6 +8,7 @@
 #  birthday   :date
 #  deleted_at :datetime
 #  email      :string(255)      default(""), not null
+#  first_name :string(255)
 #  image      :string(255)
 #  medias     :text(65535)
 #  name       :string(255)      default(""), not null
@@ -26,4 +27,8 @@ class Student < ApplicationRecord
   has_many :grades, dependent: :destroy
   accepts_nested_attributes_for :grades, reject_if: :all_blank, allow_destroy: true
   acts_as_paranoid
+
+  def full_name
+    "#{first_name} #{name}"
+  end
 end

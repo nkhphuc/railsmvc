@@ -7,7 +7,7 @@ module Moderators
 
     def index
       students_load = if params[:query].present?
-                        Student.where('name LIKE ?', "%#{params[:query]}%").includes(:grades)
+                        Student.where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").includes(:grades)
                       else
                         Student.all.includes(:grades)
                       end
@@ -70,7 +70,7 @@ module Moderators
     end
 
     def student_params
-      params.require(:student).permit(:name, :email, :birthday, :image, { medias: [] },
+      params.require(:student).permit(:name, :email, :birthday, :image, { medias: [] }, :first_name,
                                       grades_attributes: %i[id subject semester score _destroy])
     end
   end
