@@ -31,4 +31,12 @@ class Student < ApplicationRecord
   def full_name
     "#{first_name} #{name}"
   end
+
+  after_create :log_creation
+
+  private
+
+  def log_creation
+    Rails.logger.info("New student created: #{self.inspect}")
+  end
 end
