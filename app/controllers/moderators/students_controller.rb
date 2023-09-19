@@ -2,17 +2,20 @@
 
 # Students Controller
 module Moderators
+  # Controller
   class StudentsController < ModeratorsController
     before_action :set_student, only: %i[show edit update destroy]
 
     def index
       students_load = if params[:query].present?
-                        Student.where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").includes(:grades)
+                        Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%")
                       else
-                        Student.all.includes(:grades)
+                        Student.includes(:grades)
                       end
       # students_load = if params[:query].present?
-      #                   Student.where('name LIKE ?', "%#{params[:query]}%").includes(:grades).joins(:grades).where(grades: {subject: 0})
+      #                   Student.where('name LIKE ?', "%#{params[:query]}%")
+      #                     .includes(:grades).joins(:grades)
+      #                     .where(grades: {subject: 0})
       #                 else
       #                   Student.all.includes(:grades).joins(:grades).where(grades: {subject: 0})
       #                 end

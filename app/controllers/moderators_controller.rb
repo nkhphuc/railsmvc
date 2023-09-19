@@ -9,7 +9,7 @@ class ModeratorsController < ApplicationController
   private
 
   def validate_customer_logged_in
-    return if !customer_signed_in?
+    return unless customer_signed_in?
 
     redirect_to root_path
     flash[:notice] = 'You are signing in as Customer, please logout and sign in again as User'
