@@ -44,9 +44,15 @@ class Student < ApplicationRecord
     end
   end
 
+  after_create :set_order
+
   private
 
   def log_creation
     Rails.logger.info("New student created: #{self.inspect}")
+  end
+
+  def set_order
+    self.order = id
   end
 end

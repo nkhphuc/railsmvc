@@ -1,25 +1,37 @@
 class OrderingService
-  def self.move_up(item)
-    adjacent_item = item.class.where('`order` < ?', item.order).order(order: :desc).first
+  attr_reader :item
+
+  def initialize(item)
+    @item = item
+  end
+
+  def move_up
+    set_order if item.order == nil
+    adjacent_item = @item.class.where('`order` < ?', @item.order).order(order: :desc).first
 
     if adjacent_item
-      swap_orders(item, adjacent_item)
+        swap_orders(adjacent_item)
     end
   end
 
-  def self.move_down(item)
-    adjacent_item = item.class.where('`order` > ?', item.order).order(:order).first
+  def move_down
+    set_order if item.order == nil
+    adjacent_item = @item.class.where('`order` > ?', @item.order).order(:order).first
 
     if adjacent_item
-      swap_orders(item, adjacent_item)
+        swap_orders(adjacent_item)
     end
   end
 
   private
 
-  def self.swap_orders(item1, item2)
-    temp_order = item1.order
-    item1.update(order: item2.order)
-    item2.update(order: temp_order)
+  def set_order
+    @item.update(order: @item.class.maximum(:order) + 1)
+  end
+
+  def swap_orders(item)
+    temp_order = @item.order
+    @item.update(order: item.order)
+    item.update(order: temp_order)
   end
 end

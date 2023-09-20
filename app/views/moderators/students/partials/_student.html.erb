@@ -1,7 +1,7 @@
 <div id="<%= dom_id student %>">
 
-  <%= link_to "Move Up", move_up_student_path(student), data: {turbo_method: :post} %>
-  <%= link_to "Move Down", move_down_student_path(student), data: {turbo_method: :post} %>
+  <%= link_to "Move Up", move_up_student_path(student), data: {turbo_method: :patch} %>
+  <%= link_to "Move Down", move_down_student_path(student), data: {turbo_method: :patch} %>
 
   <%= image_tag student.image_url if student.image? %>
 

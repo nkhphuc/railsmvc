@@ -17,8 +17,8 @@ class ModeratorsController < ApplicationController
 
   def validate_moderator
     return if %w[Moderator Admin].include?(current_user.type)
-
+    sign_out(current_user)
     redirect_to root_path
-    flash[:notice] = 'You are not Moderator or Admin'
+    flash[:notice] = 'You are not Moderator or Admin and has been log out'
   end
 end

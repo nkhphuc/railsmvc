@@ -8,9 +8,9 @@ module Moderators
 
     def index
       students_load = if params[:query].present?
-                        Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").order(:order)
+                        Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").order(Arel.sql('`order` IS NULL, `order` ASC'))
                       else
-                        Student.includes(:grades).order(:order)
+                        Student.includes(:grades).order(Arel.sql('`order` IS NULL, `order` ASC'))
                       end
       # students_load = if params[:query].present?
       #                   Student.where('name LIKE ?', "%#{params[:query]}%")
@@ -64,12 +64,12 @@ module Moderators
     end
 
     def move_up
-      OrderingService.move_up(@student)
+      OrderingService.new(@student).move_up
       redirect_to students_path
     end
 
     def move_down
-      OrderingService.move_down(@student)
+      OrderingService.new(@student).move_down
       redirect_to students_path
     end
 

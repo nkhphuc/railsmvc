@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :grades, module: :moderators
   resources :students, module: :moderators do
-    post 'move_up', on: :member
-    post 'move_down', on: :member
+    member do
+      patch 'move_up'
+      patch 'move_down'
+    end
   end
   authenticated :user do
     root to: 'moderators/students#index', as: :authenticated_moderator
