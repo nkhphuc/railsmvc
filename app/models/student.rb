@@ -34,6 +34,15 @@ class Student < ApplicationRecord
 
   after_create :log_creation
 
+  def self.send_birthday_emails
+    today = Date.today
+    students_with_birthday = where("extract(month from birthday) = ? AND extract(day from birthday) = ?", today.month, today.day)
+
+    students_with_birthday.each do |student|
+      BirthdayEmailWorker.perform_async(student.id)
+    end
+  end
+
   private
 
   def log_creation

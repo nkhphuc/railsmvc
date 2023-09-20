@@ -87,3 +87,9 @@ gem 'mini_magick'
 gem 'nested_form_fields'
 gem 'paranoia'
 gem 'sidekiq'
+gem 'whenever'
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
+end
