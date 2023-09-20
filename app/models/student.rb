@@ -12,6 +12,7 @@
 #  image      :string(255)
 #  medias     :text(65535)
 #  name       :string(255)      default(""), not null
+#  order      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

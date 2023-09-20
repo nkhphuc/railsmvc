@@ -4,13 +4,13 @@
 module Moderators
   # Controller
   class StudentsController < ModeratorsController
-    before_action :set_student, only: %i[show edit update destroy]
+    before_action :set_student, only: %i[show edit update destroy move_up move_down]
 
     def index
       students_load = if params[:query].present?
-                        Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%")
+                        Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").order(:order)
                       else
-                        Student.includes(:grades)
+                        Student.includes(:grades).order(:order)
                       end
       # students_load = if params[:query].present?
       #                   Student.where('name LIKE ?', "%#{params[:query]}%")
@@ -63,6 +63,17 @@ module Moderators
       end
     end
 
+    def move_up
+      OrderingService.move_up(@student)
+      redirect_to students_path
+    end
+
+    def move_down
+      OrderingService.move_down(@student)
+      redirect_to students_path
+    end
+
+
     private
 
     def set_student
@@ -73,7 +84,7 @@ module Moderators
     end
 
     def student_params
-      params.require(:student).permit(:name, :email, :birthday, :image, { medias: [] }, :first_name,
+      params.require(:student).permit(:name, :email, :birthday, :image, { medias: [] }, :first_name, :order,
                                       grades_attributes: %i[id subject semester score _destroy])
     end
   end
