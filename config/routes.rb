@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :student_classes do
+    collection do
+      get 'get_teachers'
+    end
+  end
+  resources :teachers
   devise_for :customers
   devise_for :users
   resources :grades, module: :moderators
