@@ -7,11 +7,11 @@ module Moderators
     before_action :set_student, only: %i[show edit update destroy move_up move_down]
 
     def index
-      students_load = if params[:query].present?
-                        Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").order(Arel.sql('`order` IS NULL, `order` ASC'))
-                      else
-                        Student.includes(:grades).order(Arel.sql('`order` IS NULL, `order` ASC'))
-                      end
+      # students_load = if params[:query].present?
+      #                   Student.includes(:grades).where('CONCAT(first_name, " ", name) LIKE ?', "%#{params[:query]}%").order(Arel.sql('`order` IS NULL, `order` ASC'))
+      #                 else
+      #                   Student.includes(:grades).order(Arel.sql('`order` IS NULL, `order` ASC'))
+      #                 end
       # students_load = if params[:query].present?
       #                   Student.where('name LIKE ?', "%#{params[:query]}%")
       #                     .includes(:grades).joins(:grades)
@@ -19,7 +19,9 @@ module Moderators
       #                 else
       #                   Student.all.includes(:grades).joins(:grades).where(grades: {subject: 0})
       #                 end
-      @students = students_load.page params[:page]
+      # @students = students_load.page params[:page]
+      @q = Student.ransack(params[:q])
+      @students = @q.result.includes(:grades).order(Arel.sql('`order` IS NULL, `order` ASC')).page params[:page]
     end
 
     def show; end

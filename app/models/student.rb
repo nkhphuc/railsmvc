@@ -46,6 +46,14 @@ class Student < ApplicationRecord
 
   after_create :set_order
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["birthday", "email", "first_name", "name"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["grades"]
+  end
+
   private
 
   def log_creation
