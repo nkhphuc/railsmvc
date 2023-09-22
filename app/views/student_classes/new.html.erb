@@ -1,9 +1,11 @@
-<h1>New student class</h1>
+<%= turbo_frame_tag 'new_student_class' do %>
+  <h1>New student class</h1>
 
-<%= render "form", student_class: @student_class %>
+  <%= render "form", student_class: @student_class %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Back to student classes", student_classes_path %>
-</div>
+  <div>
+    <%= link_to "Back to student classes", student_classes_path, data: { turbo_target: "_top" } %>
+  </div>
+<% end %>

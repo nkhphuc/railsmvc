@@ -25,8 +25,10 @@ class StudentClassesController < ModeratorsController
 
     respond_to do |format|
       if @student_class.save
-        format.html { redirect_to student_class_url(@student_class), notice: "Student class was successfully created." }
+        # format.html { render :new, notice: "Student class was successfully created." }
+        # format.html { redirect_to student_class_url(@student_class), notice: "Student class was successfully created." }
         format.json { render :show, status: :created, location: @student_class }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @student_class.errors, status: :unprocessable_entity }
@@ -38,8 +40,9 @@ class StudentClassesController < ModeratorsController
   def update
     respond_to do |format|
       if @student_class.update(student_class_params)
-        format.html { redirect_to student_class_url(@student_class), notice: "Student class was successfully updated." }
+        # format.html { redirect_to student_class_url(@student_class), notice: "Student class was successfully updated." }
         format.json { render :show, status: :ok, location: @student_class }
+        format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @student_class.errors, status: :unprocessable_entity }
@@ -52,8 +55,9 @@ class StudentClassesController < ModeratorsController
     @student_class.destroy
 
     respond_to do |format|
-      format.html { redirect_to student_classes_url, notice: "Student class was successfully destroyed." }
+      # format.html { redirect_to student_classes_url, notice: "Student class was successfully destroyed."}
       format.json { head :no_content }
+      format.turbo_stream {render turbo_stream: turbo_stream.remove(@student_class)}
     end
   end
 

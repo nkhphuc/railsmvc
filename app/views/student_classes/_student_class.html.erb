@@ -1,3 +1,4 @@
+<%= turbo_frame_tag dom_id student_class do %>
 <div id="<%= dom_id student_class %>">
   <p>
     <strong>Name:</strong>
@@ -6,7 +7,11 @@
 
   <p>
     <strong>Teacher:</strong>
-    <%= student_class.teacher_id %>
+    <%= student_class.teacher.name %>
   </p>
 
+  <%= link_to "Edit this student class", edit_student_class_path(student_class) %>
+  <%= link_to "Delete", student_class_path(student_class), data: { turbo_target: "_top", turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button" %>
+
 </div>
+<% end %>
