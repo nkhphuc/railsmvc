@@ -1,3 +1,4 @@
-<%= turbo_stream.replace "dynamic-select" do %>
-  <%= collection_select :student_class, :teacher_id, Teacher.all, :id, :name, { prompt: "Select teacher", selected: params[:selected] }, id: "dynamic-select", data: { action: 'change->select-form#change', select_form_target: 'select' } %>
+<%= turbo_stream.update 'dynamic-select' do %>
+  <%= options_for_select('Select teacher' => '')%>
+  <%= options_for_select(Teacher.all.map { |t| [t.name, t.id] }, params[:selected])%>
 <% end %>

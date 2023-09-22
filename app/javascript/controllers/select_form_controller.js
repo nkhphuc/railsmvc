@@ -65,9 +65,8 @@ export default class extends Controller {
   static values = { url: String }
 
   change(event) {
-    get(this.urlValue, {
-      responseKind: 'turbo-stream',
-      params: { selected: this.selectTarget.value }
+    get(`${this.urlValue}?selected=${this.selectTarget.value}`, {
+      responseKind: 'turbo-stream'
     })
     .catch(error => {
       if (error.response) {

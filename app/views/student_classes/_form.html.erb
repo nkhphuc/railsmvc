@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :teacher_id, style: "display: block" %>
-    <%= form.collection_select :teacher_id, Teacher.all, :id, :name, { prompt: "Select teacher"}, id: "dynamic-select", data: { action: 'change->select-form#change', select_form_target: 'select' } %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :name, { prompt: "Select teacher"}, id: "dynamic-select", data: { action: 'click->select-form#change', select_form_target: 'select' } %>
   </div>
 
   <div>
