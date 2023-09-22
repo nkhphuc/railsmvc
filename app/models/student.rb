@@ -47,11 +47,17 @@ class Student < ApplicationRecord
   after_create :set_order
 
   def self.ransackable_attributes(auth_object = nil)
-    ["birthday", "email", "first_name", "name"]
+    ["birthday", "email", "first_name", "name", "full_name"]
   end
 
   def self.ransackable_associations(auth_object = nil)
     ["grades"]
+  end
+
+  ransacker :full_name do |parent|
+    Arel::Nodes::NamedFunction.new('CONCAT_WS', [
+      Arel::Nodes.build_quoted(' '), parent.table[:first_name], parent.table[:name]
+    ])
   end
 
   private
