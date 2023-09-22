@@ -4,3 +4,4 @@ import "controllers"
 
 import "jquery"
 import "custom"
+import "@rails/request.js"

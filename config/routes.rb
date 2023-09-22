@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :student_classes do
     collection do
       get 'get_teachers'
+      get 'update_teachers'
     end
   end
   resources :teachers

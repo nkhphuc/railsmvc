@@ -94,3 +94,4 @@ group :development, :test do
   gem 'faker'
 end
 gem 'ransack'
+gem 'requestjs-rails'

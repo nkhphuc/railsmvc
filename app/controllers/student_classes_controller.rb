@@ -1,4 +1,4 @@
-class StudentClassesController < ApplicationController
+class StudentClassesController < ModeratorsController
   before_action :set_student_class, only: %i[ show edit update destroy ]
 
   # GET /student_classes or /student_classes.json
@@ -64,6 +64,12 @@ class StudentClassesController < ApplicationController
     render json: { options: teachers }
   rescue StandardError => e
     render json: { errors: e.message }, status: :unprocessable_entity
+  end
+
+  def update_teachers
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   private

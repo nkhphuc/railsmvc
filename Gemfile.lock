@@ -286,6 +286,8 @@ GEM
     regexp_parser (2.8.1)
     reline (0.3.8)
       io-console (~> 0.5)
+    requestjs-rails (0.0.10)
+      rails (>= 6.0.0)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -407,6 +409,7 @@ DEPENDENCIES
   rails (~> 7.0.7, >= 7.0.7.2)
   ransack
   redis
+  requestjs-rails
   rspec-rails (~> 5.0.0)
   rubocop-rails
   selenium-webdriver
