@@ -11,3 +11,5 @@ pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin 'jquery'
 pin 'jquery_ujs'
 pin 'custom'
+pin "bootstrap", to: "bootstrap.js", preload: true
+pin "popper", to: "popper.js", preload: true

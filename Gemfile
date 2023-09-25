@@ -95,3 +95,4 @@ group :development, :test do
 end
 gem 'ransack'
 gem 'requestjs-rails'
+gem 'bootstrap', '~> 5.3.1'

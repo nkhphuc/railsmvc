@@ -5,3 +5,5 @@
 
 //= link jquery.js
 //= link jquery_ujs.js
+//= link bootstrap.js
+//= link popper.js
