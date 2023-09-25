@@ -10,4 +10,6 @@
 #
 class Teacher < ApplicationRecord
     has_many :student_classes, dependent: :destroy
+
+    validates :name, presence: true
 end

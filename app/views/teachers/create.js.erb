@@ -1,0 +1,6 @@
+<% if @teacher.errors.any? %>
+  $("#new_teacher_form").html("<%= j render "form", teacher: @teacher %>") ;
+<% else %>
+  $("<%= j render @teacher %>").prependTo("#teachers");
+  $(".form_field").val("");
+<% end %>

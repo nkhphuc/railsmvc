@@ -1,9 +1,10 @@
-class TeachersController < ApplicationController
+class TeachersController < FrontController
   before_action :set_teacher, only: %i[ show edit update destroy ]
 
   # GET /teachers or /teachers.json
   def index
     @teachers = Teacher.all
+    @teacher = Teacher.new
   end
 
   # GET /teachers/1 or /teachers/1.json
@@ -25,11 +26,13 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.save
-        format.html { redirect_to teacher_url(@teacher), notice: "Teacher was successfully created." }
-        format.json { render :show, status: :created, location: @teacher }
+        # format.html { redirect_to teacher_url(@teacher), notice: "Teacher was successfully created." }
+        # format.json { render :show, status: :created, location: @teacher }
+        format.js
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
+        # format.html { render :new, status: :unprocessable_entity }
+        # format.json { render json: @teacher.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
