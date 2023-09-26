@@ -10,6 +10,11 @@
     <%= student_class.teacher.name %>
   </p>
 
+    <p>
+    <strong>School:</strong>
+    <%= student_class.school.name %>
+  </p>
+
   <%= link_to "Edit this student class", edit_student_class_path(student_class) %>
   <%= link_to "Delete", student_class_path(student_class), data: { turbo_target: "_top", turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button" %>
 

@@ -80,6 +80,12 @@ class StudentClassesController < ModeratorsController
     end
   end
 
+  def update_teachers
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student_class
@@ -88,6 +94,6 @@ class StudentClassesController < ModeratorsController
 
     # Only allow a list of trusted parameters through.
     def student_class_params
-      params.require(:student_class).permit(:name, :teacher_id)
+      params.require(:student_class).permit(:name, :teacher_id, :school_id)
     end
 end

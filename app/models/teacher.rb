@@ -18,6 +18,8 @@
 #  fk_rails_...  (school_id => schools.id)
 #
 class Teacher < ApplicationRecord
+    belongs_to :school
+
     has_many :student_classes, dependent: :destroy
 
     validates :name, presence: true

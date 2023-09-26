@@ -8,4 +8,6 @@
 #  updated_at :datetime         not null
 #
 class School < ApplicationRecord
+    has_many :teachers, dependent: :destroy
+    has_many :student_classes, dependent: :destroy
 end

@@ -9,6 +9,11 @@
     <%= teacher.email %>
   </p>
 
+  <p>
+    <strong>School:</strong>
+    <%= teacher.school.name %>
+  </p>
+
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= "#{dom_id(teacher)}_modal" %>">
     Edit teacher

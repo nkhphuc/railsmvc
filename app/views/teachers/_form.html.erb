@@ -21,6 +21,11 @@
     <%= form.text_field :email, class: "#{dom_id(teacher)}_form_field" %>
   </div>
 
+    <div>
+    <%= form.label :school_id, style: "display: block" %>
+    <%= form.text_field :school_id, class: "#{dom_id(teacher)}_form_field" %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

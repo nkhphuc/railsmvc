@@ -1,4 +1,4 @@
-<%= turbo_stream.update 'dynamic-select' do %>
+<%= turbo_stream.update 'teachers-dynamic-select' do %>
   <%= options_for_select('Select teacher' => '')%>
   <%= options_for_select(Teacher.all.map { |t| [t.name, t.id] }, params[:selected])%>
 <% end %>

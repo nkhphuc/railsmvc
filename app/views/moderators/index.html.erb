@@ -1,9 +1,9 @@
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-    <button class="nav-link" id="nav-student-tab" data-bs-toggle="tab" data-bs-target="#nav-student" type="button" role="tab" aria-controls="nav-student" aria-selected="false"><%= link_to "Students", students_path, remote: true, method: :get %></button>
-    <button class="nav-link" id="nav-teacher-tab" data-bs-toggle="tab" data-bs-target="#nav-teacher" type="button" role="tab" aria-controls="nav-teacher" aria-selected="false"><%= link_to "Teachers", teachers_path, remote: true, method: :get %></button>
-    <button class="nav-link" id="nav-student-class-tab" data-bs-toggle="tab" data-bs-target="#nav-student-class" type="button" role="tab" aria-controls="nav-student-class" aria-selected="false"><%= link_to "Student classes", student_classes_path, remote: true, method: :get %></button>
+    <a class="nav-link" id="nav-student-tab" data-bs-toggle="tab" data-bs-target="#nav-student" type="button" role="tab" aria-controls="nav-student" aria-selected="false" data-remote="true" href="<%= students_path %>" data-method="get" >Students</a>
+    <a class="nav-link" id="nav-teacher-tab" data-bs-toggle="tab" data-bs-target="#nav-teacher" type="button" role="tab" aria-controls="nav-teacher" aria-selected="false" data-remote="true" href="<%= teachers_path %>" data-method="get" >Teachers</a>
+    <a class="nav-link" id="nav-student-class-tab" data-bs-toggle="tab" data-bs-target="#nav-student-class" type="button" role="tab" aria-controls="nav-student-class" aria-selected="false" data-remote="true" href="<%= student_classes_path %>" data-method="get" >Student classes</a>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">

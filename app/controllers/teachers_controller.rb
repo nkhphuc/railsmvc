@@ -75,6 +75,6 @@ class TeachersController < ModeratorsController
 
     # Only allow a list of trusted parameters through.
     def teacher_params
-      params.require(:teacher).permit(:name, :email)
+      params.require(:teacher).permit(:name, :email, :school_id)
     end
 end
