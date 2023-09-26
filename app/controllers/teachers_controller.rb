@@ -3,7 +3,8 @@ class TeachersController < ModeratorsController
 
   # GET /teachers or /teachers.json
   def index
-    @teachers = Teacher.all
+    @q = Teacher.ransack(params[:q])
+    @teachers = @q.result.includes(:school)
     @teacher = Teacher.new
     respond_to do |format|
       format.html

@@ -1,5 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<%= search_form_for @q, data: {remote: true} do |form| %>
+  <%= form.collection_check_boxes :school_id_in, School.all, :id, :name %>
+  <%= form.label 'Name' %>
+  <%= form.search_field :name_cont %>
+<% end %>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newTeacherModal">
   New teacher

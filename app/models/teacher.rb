@@ -23,4 +23,12 @@ class Teacher < ApplicationRecord
     has_many :student_classes, dependent: :destroy
 
     validates :name, presence: true
+
+    def self.ransackable_attributes(auth_object = nil)
+      ["name", "school_id"]
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+      ["school"]
+    end
 end
