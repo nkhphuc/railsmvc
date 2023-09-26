@@ -4,6 +4,10 @@ class StudentClassesController < ModeratorsController
   # GET /student_classes or /student_classes.json
   def index
     @student_classes = StudentClass.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /student_classes/1 or /student_classes/1.json

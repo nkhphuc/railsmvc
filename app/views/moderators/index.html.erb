@@ -1,0 +1,15 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+    <button class="nav-link" id="nav-student-tab" data-bs-toggle="tab" data-bs-target="#nav-student" type="button" role="tab" aria-controls="nav-student" aria-selected="false"><%= link_to "Students", students_path, remote: true, method: :get %></button>
+    <button class="nav-link" id="nav-teacher-tab" data-bs-toggle="tab" data-bs-target="#nav-teacher" type="button" role="tab" aria-controls="nav-teacher" aria-selected="false"><%= link_to "Teachers", teachers_path, remote: true, method: :get %></button>
+    <button class="nav-link" id="nav-student-class-tab" data-bs-toggle="tab" data-bs-target="#nav-student-class" type="button" role="tab" aria-controls="nav-student-class" aria-selected="false"><%= link_to "Student classes", student_classes_path, remote: true, method: :get %></button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="nav-teacher" role="tabpanel" aria-labelledby="nav-teacher-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="nav-student-class" role="tabpanel" aria-labelledby="nav-student-class-tab" tabindex="0">...</div>
+</div>
+This is moderator index page.

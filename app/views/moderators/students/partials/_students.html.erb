@@ -1,0 +1,19 @@
+<%= search_form_for @q, data: {remote: true} do |form| %>
+  <%= form.label 'Name or Email' %>
+  <%= form.search_field :full_name_or_email_cont %>
+<% end %>
+
+<h1>Students</h1>
+
+<div id="students">
+  <% students.each do |student| %>
+  <%= render "moderators/students/partials/student", student: student %>
+    <p>
+      <%= link_to "Show this student", student %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New student", new_student_path %>
+
+<%= paginate students %>

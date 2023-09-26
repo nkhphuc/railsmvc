@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :schools
   resources :student_classes do
     collection do
       get 'get_teachers'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :teachers
   devise_for :customers
   devise_for :users
+  resources :moderators, only: %i[index]
   resources :grades, module: :moderators
   resources :students, module: :moderators do
     member do
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
   authenticated :user do
-    root to: 'moderators/students#index', as: :authenticated_moderator
+    root to: 'moderators#index', as: :authenticated_moderator
   end
   authenticated :customer do
     root to: 'customers/customer_pages#index', as: :authenticated_customer

@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= turbo_frame_tag 'new_student_class' do %>
+  <%= link_to "New student class", new_student_class_path %>
+<% end %>
+
+<h1>Student classes</h1>
+
+<div id="student_classes">
+  <% student_classes.each do |student_class| %>
+    <%= render "student_classes/student_class", student_class: student_class %>
+  <% end %>
+</div>

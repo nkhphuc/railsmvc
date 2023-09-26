@@ -26,7 +26,11 @@ class OrderingService
   private
 
   def set_order
-    @item.update(order: @item.class.maximum(:order) + 1)
+    if @item.class.maximum(:order)
+      @item.update(order: @item.class.maximum(:order) + 1)
+    else
+      @item.update(order: 1)
+    end
   end
 
   def swap_orders(item)

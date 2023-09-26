@@ -22,6 +22,10 @@ module Moderators
       # @students = students_load.page params[:page]
       @q = Student.ransack(params[:q])
       @students = @q.result.includes(:grades).order(Arel.sql('`order` IS NULL, `order` ASC')).page params[:page]
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def show; end

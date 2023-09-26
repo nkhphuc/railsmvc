@@ -6,6 +6,9 @@ class ModeratorsController < ApplicationController
   before_action :authenticate_user!
   before_action :validate_moderator
 
+  def index
+  end
+
   private
 
   def validate_customer_logged_in
