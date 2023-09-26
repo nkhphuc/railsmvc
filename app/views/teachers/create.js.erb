@@ -1,7 +1,7 @@
 <% if @teacher.errors.any? %>
-  $("#new_teacher_form").html("<%= j render "form", teacher: @teacher %>") ;
+  $("#new_teacher_form").html("<%= j render "form", teacher: @teacher %>");
 <% else %>
   $("<%= j render @teacher %>").prependTo("#teachers");
-  $(".form_field").val("");
-  $("#modalButton").click();
+  $(".new_teacher_form_field").val("");
+  $("#new_teacher_modal_button").click();
 <% end %>

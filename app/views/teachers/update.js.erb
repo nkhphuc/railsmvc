@@ -1,0 +1,6 @@
+<% if @teacher.errors.any? %>
+  $("#<%= "#{dom_id(@teacher)}_form" %>").html("<%= j render "form", teacher: @teacher %>") ;
+<% else %>
+  $("#<%= "#{dom_id(@teacher)}_modal_button" %>").click();
+  $("#<%= dom_id(@teacher) %>").html("<%= j render "teacher", teacher: @teacher %>");
+<% end %>

@@ -11,7 +11,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newTeacherModalLabel">New teacher info</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="modalButton"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="<%= "#{dom_id(@teacher)}_modal_button" %>"></button>
       </div>
       <div class="modal-body">
         <%= render "form", teacher: @teacher %>
@@ -29,10 +29,5 @@
 <div id="teachers">
   <% @teachers.each do |teacher| %>
     <%= render teacher %>
-    <p>
-      <%= link_to "Show this teacher", teacher %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New teacher", new_teacher_path %>

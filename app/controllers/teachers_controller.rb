@@ -41,11 +41,13 @@ class TeachersController < FrontController
   def update
     respond_to do |format|
       if @teacher.update(teacher_params)
-        format.html { redirect_to teacher_url(@teacher), notice: "Teacher was successfully updated." }
-        format.json { render :show, status: :ok, location: @teacher }
+        # format.html { redirect_to teacher_url(@teacher), notice: "Teacher was successfully updated." }
+        # format.json { render :show, status: :ok, location: @teacher }
+        format.js
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
+        # format.html { render :edit, status: :unprocessable_entity }
+        # format.json { render json: @teacher.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -55,8 +57,9 @@ class TeachersController < FrontController
     @teacher.destroy
 
     respond_to do |format|
-      format.html { redirect_to teachers_url, notice: "Teacher was successfully destroyed." }
-      format.json { head :no_content }
+      # format.html { redirect_to teachers_url, notice: "Teacher was successfully destroyed." }
+      # format.json { head :no_content }
+      format.js
     end
   end
 
